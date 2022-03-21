@@ -1,0 +1,19 @@
+name: Action workflow 
+
+on: [push]
+
+jobs: 
+  run-github-actions: 
+    runs-on: windows-latest
+    steps:
+      - name: simple js actions
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: john
+
+      - name: log greeting time
+        run: echo "${{ steps.greet.outputs.time }}" 
+        
+
+
